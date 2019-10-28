@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.mindorks.bootcamp.instagram.ui.dummies.DummiesAdapter.DummyItemViewModel"/>
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="@{() -> viewModel.onItemClick()}">
+
+            <TextView
+                    style="@style/AppTheme.Headline5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:text="Test Heading"
+                    android:text="@{viewModel.dummy.name}"
+                    android:id="@+id/tvHeadline"
+            android:padding="10dp"/>
+
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:scaleType="centerCrop"
+                    app:loadImage="@{viewModel.dummy.imageUrl}"
+                    app:layout_constraintTop_toBottomOf="@+id/tvHeadline"
+                    tools:ignore="ContentDescription"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
